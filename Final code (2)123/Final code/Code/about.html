@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="EduManage - Academic Management Platform for educational institutions" />
+    <meta name="keywords" content="education, student management, courses, academic platform" />
+    <meta name="author" content="EduManage Team" />
+    <title>About Us - EduManage</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/page-styles/about-style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body class="about-page-body">
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">EduManage</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <button class="btn login-btn" id="login-btn" onclick="window.location.href='login.html'">Login</button>
+        <button class="btn signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+      <div class="nav-actions" id="logout-actions" style="display:none;">
+        <span class="user-greeting">Hello, <span id="username">User</span></span>
+        <button class="btn logout-btn" id="logout-btn" onclick="logout()">Logout</button>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container about-page">
+    <header class="about-hero-section">
+      <div class="container hero-content">
+        <h1>About EduManage</h1>
+        <p>Empowering education through innovative technology solutions</p>
+      </div>
+    </header>
+
+    <section class="about-content">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h2>Our Mission</h2>
+            <p>EduManage is a comprehensive educational management platform designed to streamline academic operations, enhance learning experiences, and empower educators and students alike.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h2>Our Vision</h2>
+            <p>To be the leading educational technology platform that transforms how institutions manage academic excellence and student success.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h2>Our Approach</h2>
+            <p>We combine cutting-edge technology with pedagogical expertise to create solutions that address real challenges in education management.</p>
+          </div>
+        </div>
+        
+        <div class="values-section">
+          <h2>Our Values</h2>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3>Excellence</h3>
+              <p>Striving for the highest standards in education through continuous improvement and innovation.</p>
+            </div>
+            
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h3>Innovation</h3>
+              <p>Continuously improving our platform with the latest technologies to enhance the learning experience.</p>
+            </div>
+            
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-universal-access"></i>
+              </div>
+              <h3>Accessibility</h3>
+              <p>Making quality education management tools accessible to institutions of all sizes and budgets.</p>
+            </div>
+            
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h3>Collaboration</h3>
+              <p>Working together with educators, students, and institutions to create solutions that drive success.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stats-section">
+          <h2>EduManage By The Numbers</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number" data-count="250">0</div>
+              <div class="stat-label">Educational Institutions</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-number" data-count="50000">0</div>
+              <div class="stat-label">Active Users</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-number" data-count="98">0</div>
+              <div class="stat-label">Satisfaction Rate</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-number" data-count="15">0</div>
+              <div class="stat-label">Countries Served</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-section">
+          <h2>Our Leadership Team</h2>
+          <div class="team-grid">
+            <div class="team-member">
+              <div class="member-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+            <div class="member-name">Rajesh Sharma</div>
+              <div class="member-title">CEO & Founder</div>
+              <div class="member-description">Education technology expert with 15+ years of experience in transforming educational institutions.</div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="member-name">Bikash Thapa</div>
+              <div class="member-title">CTO</div>
+              <div class="member-description">Software architect specializing in educational platforms and digital learning solutions.</div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="member-name">Priya Gurung</div>
+              <div class="member-title">Head of Product</div>
+              <div class="member-description">Former educator passionate about integrating technology in modern learning environments.</div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="member-name">Suman Rai</div>
+              <div class="member-title">Head of Customer Success</div>
+              <div class="member-description">Dedicated to ensuring client satisfaction and driving educational excellence across institutions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 EduManage. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a> |
+          <a href="students.html">Students</a> |
+          <a href="courses.html">Courses</a> |
+          <a href="about.html">About</a> |
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Counter animation for stats
+    document.addEventListener('DOMContentLoaded', function() {
+      const counters = document.querySelectorAll('.stat-number');
+      const speed = 200;
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const count = parseInt(counter.innerText);
+        const increment = Math.ceil(target / speed);
+        
+        let current = 0;
+        
+        const updateCount = () => {
+          if (current < target) {
+            current += increment;
+            if (current > target) current = target;
+            counter.innerText = current;
+            setTimeout(updateCount, 1);
+          }
+        };
+        
+        updateCount();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="EduManage - Academic Management Platform for educational institutions" />
+    <meta name="keywords" content="education, student management, courses, academic platform" />
+    <meta name="author" content="EduManage Team" />
+    <title>Home - EduManage</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/page-styles/footer-style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">EduManage</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <button class="btn login-btn" id="login-btn" onclick="window.location.href='login.html'">Login</button>
+        <button class="btn signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+      <div class="nav-actions" id="logout-actions" style="display:none;">
+        <span class="user-greeting">Hello, <span id="username">User</span></span>
+        <button class="btn logout-btn" id="logout-btn" onclick="logout()">Logout</button>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section" id="home">
+    <div class="container hero-content">
+      <h1 class="hero-title">Manage Your Academic Excellence</h1>
+      <p class="hero-subtitle">Streamline student management, course tracking, and academic progress with our comprehensive educational platform. Built for modern institutions and educators.</p>
+      <div class="hero-buttons">
+        <button class="btn primary-btn hero-btn">Get Started</button>
+        <button class="btn secondary-btn hero-btn">Learn More</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="features-section" id="features">
+    <div class="container features-grid">
+      <div class="feature-card feature-card-red">
+        <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
+        <h3>Student Management</h3>
+        <p>Comprehensive student profiles, enrollment tracking, and academic records</p>
+      </div>
+      <div class="feature-card feature-card-blue">
+        <div class="feature-icon"><i class="fas fa-book"></i></div>
+        <h3>Course Organization</h3>
+        <p>Streamlined course creation, scheduling, and curriculum management</p>
+      </div>
+      <div class="feature-card feature-card-green">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Progress Analytics</h3>
+        <p>Real-time insights into student performance and institutional metrics</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlight-section">
+    <h1>Powerful Features for Modern Education</h1>
+    <p>Everything you need to manage students, courses, and academic records in one comprehensive platform</p>
+  </section>
+
+  <main class="main-features container">
+    <div class="feature-block feature-block-red">
+        <div class="feature-bar"></div>
+        <h2>Smart Student Management</h2>
+        <p>Advanced search algorithms, bulk operations, and intelligent filtering to manage thousands of students effortlessly</p>
+        <button class="btn feature-btn feature-btn-red">Learn More</button>
+    </div>
+
+    <div class="feature-block feature-block-blue">
+        <div class="feature-bar"></div>
+        <h2>Course Administration</h2>
+        <p>Create, schedule, and track courses with automated enrollment, waitlists, and prerequisite management</p>
+        <button class="btn feature-btn feature-btn-blue">Learn More</button>
+    </div>
+
+    <div class="feature-block feature-block-green">
+        <div class="feature-bar"></div>
+        <h2>Analytics & Reporting</h2>
+        <p>Real-time dashboards, performance metrics, and detailed reports to track institutional success</p>
+        <button class="btn feature-btn feature-btn-green">Learn More</button>
+    </div>
+  </main>
+
+  <section class="additional-features container">
+    <h2>More Amazing Features</h2>
+
+    <div class="additional-features-grid">
+        <div class="additional-feature-card">
+            <h3>Attendance Tracking</h3>
+            <p>Automated attendance recording with facial recognition and RFID technology.</p>
+        </div>
+
+        <div class="additional-feature-card">
+            <h3>Gradebook</h3>
+            <p>Comprehensive grade management with customizable grading scales and rubrics.</p>
+        </div>
+
+        <div class="additional-feature-card">
+            <h3>Communication Tools</h3>
+            <p>Built-in messaging system for students, parents, and faculty communication.</p>
+        </div>
+
+        <div class="additional-feature-card">
+            <h3>Mobile Access</h3>
+            <p>Fully responsive design with dedicated mobile apps for iOS and Android.</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="sample-data-section container">
+    <h2>Sample Data Overview</h2>
+    <p>Here's a glimpse of our student and course management system in action.</p>
+
+    <div class="sample-data-grid">
+      <div class="sample-data-card">
+        <h3>Recent Students</h3>
+        <ul id="student-list" class="data-list">
+          <li>Ram Shrestha - CSC101 (GPA: 3.8)</li>
+          <li>Sita Koirala - CSC201 (GPA: 3.5)</li>
+          <li>Hari Thapa - CSC301 (GPA: 3.2)</li>
+          <li>Anita Gurung - CSC401 (GPA: 3.9)</li>
+          <li>Binod Karki - CSC501 (GPA: 2.8)</li>
+        </ul>
+      </div>
+
+      <div class="sample-data-card">
+        <h3>Available Courses</h3>
+        <ul id="course-list" class="data-list">
+          <li>Introduction to Computer Science (CSC101)</li>
+          <li>Data Structures and Algorithms (CSC201)</li>
+          <li>Database Management Systems (CSC301)</li>
+          <li>Software Engineering (CSC401)</li>
+          <li>Web Technologies (CSC501)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 EduManage. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a> |
+        <a href="students.html">Students</a> |
+        <a href="courses.html">Courses</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

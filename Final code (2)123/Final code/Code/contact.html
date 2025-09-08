@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="EduManage - Academic Management Platform for educational institutions" />
+    <meta name="keywords" content="education, student management, courses, academic platform" />
+    <meta name="author" content="EduManage Team" />
+    <title>Contact Us - EduManage</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/page-styles/footer-style.css" />
+    <link rel="stylesheet" href="css/page-styles/contact-style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">EduManage</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <button class="btn login-btn" id="login-btn" onclick="window.location.href='login.html'">Login</button>
+        <button class="btn signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+      <div class="nav-actions" id="logout-actions" style="display:none;">
+        <span class="user-greeting">Hello, <span id="username">User</span></span>
+        <button class="btn logout-btn" id="logout-btn" onclick="logout()">Logout</button>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container contact-page">
+    <header class="contact-hero-section">
+      <div class="container hero-content">
+        <h1>Get In Touch</h1>
+        <p>Ready to transform your educational institution? We're here to help you every step of the way.</p>
+      </div>
+    </header>
+
+    <section class="contact-info-section">
+      <div class="container">
+        <div class="contact-info-grid">
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Visit Our Office</h3>
+            <p>EduManage Headquarters<br>
+            Thamel, Kathmandu, Nepal<br>
+            Bagmati Province, 44600</p>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>Call Us</h3>
+            <p>Phone: +977-1-1234567<br>
+            Mobile: +977-9841-234567<br>
+            Support: 24/7 Available</p>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email Us</h3>
+            <p>General: info@edumanage.com.np<br>
+            Support: support@edumanage.com.np<br>
+            Sales: sales@edumanage.com.np</p>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Business Hours</h3>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+            Saturday: 10:00 AM - 4:00 PM<br>
+            Sunday: Closed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form-map-section">
+      <div class="container">
+        <div class="contact-form-map-grid">
+          <div class="contact-form-container">
+            <h2>Send Us a Message</h2>
+            <p>Have questions about our platform? Need a demo? We're here to help!</p>
+
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" name="firstName" required />
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                  <option value="">Select a subject</option>
+                  <option value="demo">Request a Demo</option>
+                  <option value="support">Technical Support</option>
+                  <option value="pricing">Pricing Information</option>
+                  <option value="partnership">Partnership Inquiry</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="institution">Institution Name</label>
+                <input type="text" id="institution" name="institution" placeholder="Your school/college name" />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="newsletter" />
+                  <span class="checkmark"></span>
+                  Subscribe to our newsletter for updates and educational insights
+                </label>
+              </div>
+
+              <button type="submit" class="btn contact-submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <div class="map-container">
+            <h3>Find Us</h3>
+            <div class="map-placeholder">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>Interactive Map Coming Soon</p>
+              <small>Thamel, Kathmandu, Nepal</small>
+            </div>
+
+            <div class="office-locations">
+              <h4>Our Locations</h4>
+              <div class="location-item">
+                <i class="fas fa-building"></i>
+                <div>
+                  <strong>Head Office</strong><br>
+                  <small>Thamel, Kathmandu</small>
+                </div>
+              </div>
+              <div class="location-item">
+                <i class="fas fa-building"></i>
+                <div>
+                  <strong>Regional Office</strong><br>
+                  <small>Pokhara, Nepal</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3><i class="fas fa-question-circle"></i> How do I get started with EduManage?</h3>
+            <p>Simply contact us for a personalized demo. We'll walk you through the platform and help you set up your institution's profile.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3><i class="fas fa-question-circle"></i> What types of educational institutions can use EduManage?</h3>
+            <p>EduManage is designed for schools, colleges, universities, and training centers of all sizes across Nepal and beyond.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3><i class="fas fa-question-circle"></i> Is my data secure?</h3>
+            <p>Absolutely. We use enterprise-grade security measures and comply with all relevant data protection regulations.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3><i class="fas fa-question-circle"></i> Do you provide training and support?</h3>
+            <p>Yes! We offer comprehensive training programs, 24/7 technical support, and dedicated account managers for all our clients.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3><i class="fas fa-question-circle"></i> Can I try EduManage before committing?</h3>
+            <p>Definitely! We offer a free trial period so you can experience the full power of our platform before making a decision.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3><i class="fas fa-question-circle"></i> What are your pricing plans?</h3>
+            <p>We offer flexible pricing based on institution size and needs. Contact our sales team for a customized quote.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-connect-section">
+      <div class="container">
+        <h2>Connect With Us</h2>
+        <p>Follow us on social media for the latest updates, educational insights, and platform announcements.</p>
+
+        <div class="social-links-grid">
+          <a href="#" class="social-link facebook">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+          </a>
+          <a href="#" class="social-link twitter">
+            <i class="fab fa-twitter"></i>
+            <span>Twitter</span>
+          </a>
+          <a href="#" class="social-link linkedin">
+            <i class="fab fa-linkedin-in"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="#" class="social-link instagram">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-link youtube">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+ 
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 EduManage. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a> |
+        <a href="students.html">Students</a> |
+        <a href="courses.html">Courses</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

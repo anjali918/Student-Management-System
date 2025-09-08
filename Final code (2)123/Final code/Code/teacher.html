@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="EduManage - Academic Management Platform for educational institutions" />
+    <meta name="keywords" content="education, student management, courses, academic platform" />
+    <meta name="author" content="EduManage Team" />
+    <title>Teacher Dashboard - EduManage</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/page-styles/footer-style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">EduManage</div>
+      <div class="nav-actions" id="nav-actions">
+        <button class="btn login-btn" id="login-btn" onclick="window.location.href='login.html'">Login</button>
+        <button class="btn signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+      <div class="nav-actions" id="logout-actions" style="display:none;">
+        <span class="user-greeting">Hello, <span id="username">User</span></span>
+        <button class="btn logout-btn" id="logout-btn" onclick="logout()">Logout</button>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section">
+    <div class="container hero-content">
+      <h1>Teacher Dashboard</h1>
+      <p>Overview of your courses and student progress</p>
+    </div>
+  </header>
+
+  <main class="container teacher-dashboard">
+    <section class="courses-section">
+      <h2>Your Courses</h2>
+      <ul class="course-list" id="teacher-course-list">
+        <li>Programming Fundamentals (CSC101)</li>
+        <li>Data Structures and Algorithms (CSC201)</li>
+        <li>Database Management Systems (CSC301)</li>
+        <li>Software Engineering (CSC401)</li>
+        <li>Web Development Basics (CSC501)</li>
+        <!-- Add dynamic course list here -->
+      </ul>
+    </section>
+
+    <section class="students-progress-section">
+      <h2>Student Progress</h2>
+      <p>View and manage student grades and progress here.</p>
+      <div class="dashboard-content">
+        <div class="students-list">
+          <div class="section-header">
+            <h2>Students Enrolled</h2>
+            <input type="text" id="student-search" class="search-bar" placeholder="Search students..." />
+          </div>
+          <ul id="student-list" class="student-items">
+            <!-- Dynamic student list -->
+          </ul>
+        </div>
+        <div class="available-courses">
+          <div class="section-header">
+            <h2>Available Courses</h2>
+            <input type="text" id="course-search" class="search-bar" placeholder="Search courses..." />
+          </div>
+          <ul id="course-list" class="course-items">
+            <!-- Dynamic course list -->
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+ 
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 EduManage. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/teacher.js"></script>
+</body>
+</html>

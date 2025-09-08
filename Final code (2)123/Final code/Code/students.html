@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="EduManage - Academic Management Platform for educational institutions" />
+    <meta name="keywords" content="education, student management, courses, academic platform" />
+    <meta name="author" content="EduManage Team" />
+    <title>Students - EduManage</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/page-styles/footer-style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">EduManage</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="students.html" class="active">Students</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions" id="nav-actions">
+        <button class="btn login-btn" id="login-btn" onclick="window.location.href='login.html'">Login</button>
+        <button class="btn signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+      <div class="nav-actions" id="logout-actions" style="display:none;">
+        <span class="user-greeting">Hello, <span id="username">User</span></span>
+        <button class="btn logout-btn" id="logout-btn" onclick="logout()">Logout</button>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container student-dashboard">
+    <header class="dashboard-header">
+      <h1>Student Dashboard</h1>
+      <p>Manage students, courses, and academic records</p>
+    </header>
+
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="Search students, courses, instructors..." />
+      <button class="btn filter-btn"><i class="fas fa-filter"></i></button>
+    </div>
+
+    <div class="dashboard-content">
+      <section class="students-list">
+        <div class="section-header">
+          <h2>Students</h2>
+          <div class="actions">
+            <button class="btn filter-btn"><i class="fas fa-filter"></i></button>
+            <button class="btn export-btn" onclick="exportStudentsPDF()"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+        <ul class="student-items" id="student-list">
+          <!-- Student items will be dynamically populated here -->
+        </ul>
+      </section>
+
+      <section class="available-courses">
+        <h2>Available Courses</h2>
+        <ul class="course-items" id="available-course-list">
+          <!-- Course items will be dynamically populated here -->
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    // On page load, update students and courses lists to show sample data
+    document.addEventListener('DOMContentLoaded', async () => {
+      await updateStudentsList();
+      await updateCoursesList();
+    });
+
+    // Override updateCoursesList to add enroll buttons for students in available courses list
+    async function updateCoursesList(courses = null) {
+      const coursesToDisplay = courses || await window.EduManageLocal.courses.getAll();
+      const availableCourseList = document.getElementById('available-course-list');
+
+      if (availableCourseList) {
+        availableCourseList.innerHTML = '';
+
+        if (coursesToDisplay.length === 0) {
+          availableCourseList.innerHTML = '<li class="no-data">No courses available.</li>';
+          return;
+        }
+
+        // Get current user to check enrollment status
+        const currentUser = localStorage.getItem('currentUser');
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const user = currentUser ? JSON.parse(currentUser) : null;
+
+        coursesToDisplay.forEach(course => {
+          const li = document.createElement('li');
+          li.className = 'course-item';
+
+          // Check if student is already enrolled in this course
+          let isEnrolled = false;
+          let enrollButtonText = 'Enroll';
+          let enrollButtonClass = 'btn-enroll';
+
+          if (user && user.role === 'student' && isLoggedIn) {
+            // Get student's current enrollment data
+            const students = JSON.parse(localStorage.getItem('students') || '[]');
+            const studentData = students.find(s => s.email === user.email);
+
+            if (studentData && studentData.course === course.code) {
+              isEnrolled = true;
+              enrollButtonText = 'Enrolled';
+              enrollButtonClass = 'btn-enrolled';
+            }
+          }
+
+          li.innerHTML = `
+            <div class="course-info">
+              <div class="course-name">${course.name} (${course.code})</div>
+              <div class="course-instructor">Instructor: ${course.instructor || 'Not assigned'}</div>
+              <div class="course-details">${course.credits} credits | ${course.duration} weeks</div>
+              <div class="course-description">${course.description || 'No description available'}</div>
+            </div>
+            <div class="course-actions">
+              ${user && user.role === 'student' && isLoggedIn ? `
+                <button class="btn btn-sm ${enrollButtonClass}" onclick="enrollInCourse(${course.id})" ${isEnrolled ? 'disabled' : ''}>
+                  ${enrollButtonText}
+                </button>
+              ` : ''}
+            </div>
+          `;
+          availableCourseList.appendChild(li);
+        });
+      }
+    }
+  </script>
+      </section>
+    </div>
+  </main>
+
+ 
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 EduManage. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a> |
+        <a href="students.html">Students</a> |
+        <a href="courses.html">Courses</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="js/script.js"></script>
+  <script>
+    // On page load, update students and courses lists to show sample data
+    document.addEventListener('DOMContentLoaded', async () => {
+      await updateStudentsList();
+      await updateCoursesList();
+    });
+  </script>
+</body>
+</html>
